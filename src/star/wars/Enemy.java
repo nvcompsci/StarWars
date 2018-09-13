@@ -19,9 +19,10 @@ public class Enemy extends Character {
         super(x,y,color,size,name);
     }
     
-    public void move() {
-        int dx = (int) (Math.random()*20) - 9;
-        int dy = (int) (Math.random()*20) - 9;
-        super.move(dx, dy);
+    @Override
+    public void update() {
+        super.setDX( (int) (Math.random()*10) - 4 );
+        super.setDY( (int) (Math.random()*10) - 4 );
+        super.update();
     }
 }

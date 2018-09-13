@@ -16,6 +16,8 @@ public class Character {
     //Fields (Variables)
     private int x;
     private int y;
+    private int dx;
+    private int dy;
     private Color color;
     private int size;
     private String name;
@@ -24,6 +26,8 @@ public class Character {
     public Character() { //no-args
         x = 0;
         y = 0;
+        dx = 0;
+        dy = 0;
         color = Color.BLUE;
         size = 20;
         name = "enemy";
@@ -35,6 +39,8 @@ public class Character {
         this.color = color;
         this.size = size;
         this.name = name;
+        dx = 0;
+        dy = 0;
     }
     
     //Getters
@@ -67,6 +73,14 @@ public class Character {
         this.y = y;
     }
     
+    public void setDX(int dx) {
+        this.dx = dx;
+    }
+    
+    public void setDY(int dy) {
+        this.dy = dy;
+    }
+    
     public void setColor(Color color) {
         this.color = color;
     }
@@ -92,6 +106,10 @@ public class Character {
     public void move(int dx, int dy) {
         x += dx * 3;
         y += dy * 3;
+    }
+    
+    public void update() {
+        move(dx, dy);
     }
     
     //Private Methods

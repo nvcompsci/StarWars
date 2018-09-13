@@ -52,25 +52,36 @@ public class Space extends JPanel {
     
         @Override
         public void run() {
-            
-            enemy.move();
+            hero.update();
+            enemy.update();
             repaint();
         }
     }
     
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            hero.move(1, 0);
+            hero.setDX(1);
         }
         else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            hero.move(-1,0);
+            hero.setDX(-1);
         }
         else if (e.getKeyCode() == KeyEvent.VK_UP) {
-            hero.move(0,-1);
+            hero.setDY(-1);
         }
         else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            hero.move(0,1);
+            hero.setDY(1);
         }
+    }
+    
+    public void keyReleased(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+            hero.setDX(0);
+        if (e.getKeyCode() == KeyEvent.VK_LEFT)
+            hero.setDX(0);
+        if (e.getKeyCode() == KeyEvent.VK_UP)
+            hero.setDY(0);
+        if (e.getKeyCode() == KeyEvent.VK_DOWN)
+            hero.setDY(0);
     }
     
     private void drawStars(Graphics g) {

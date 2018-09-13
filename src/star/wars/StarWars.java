@@ -27,8 +27,13 @@ public class StarWars {
         j.setVisible(true);
         j.setLocationRelativeTo(null);
         j.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyPressed(KeyEvent e) {
                 c.keyPressed(e);
+            }
+            @Override
+            public void keyReleased(KeyEvent e) {
+                c.keyReleased(e);
             }
         });
     }

@@ -7,11 +7,10 @@ package star.wars;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 import java.util.Timer;
-import javafx.scene.input.KeyCode;
+import java.util.TimerTask;
 
 /**
  *
@@ -32,7 +31,7 @@ public class Space extends JPanel {
         hero = new Hero(600, 480, Color.MAGENTA, 20, "Dude");
         enemy = new Enemy(50, 50, Color.RED, 20, "Enemy");
         timer = new Timer();
-        //timer.scheduleAtFixedRate(new ScheduleTask(), 100, 30);
+        timer.scheduleAtFixedRate(new ScheduleTask(), 100, 100);
         
     }
     
@@ -49,9 +48,14 @@ public class Space extends JPanel {
         //g.dispose();     
     }
     
-    public void run() {
-        
-        repaint();
+    private class ScheduleTask extends TimerTask {
+    
+        @Override
+        public void run() {
+            
+            enemy.move();
+            repaint();
+        }
     }
     
     public void keyPressed(KeyEvent e) {
@@ -67,7 +71,6 @@ public class Space extends JPanel {
         else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             hero.move(0,1);
         }
-        run();
     }
     
     private void drawStars(Graphics g) {

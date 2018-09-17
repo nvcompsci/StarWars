@@ -103,4 +103,11 @@ public class Space extends JPanel {
           //}
         }
     }
+    
+    /**
+     * Makes the hero and enemy bounce off walls
+     */    
+    private void wallCollissions() {
+        //TODO Implement this method
+    }
 }

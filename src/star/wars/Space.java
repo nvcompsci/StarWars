@@ -52,6 +52,8 @@ public class Space extends JPanel {
     
         @Override
         public void run() {
+            wallCollissions(hero);
+            wallCollissions(enemy);
             hero.update();
             enemy.update();
             repaint();
@@ -107,7 +109,14 @@ public class Space extends JPanel {
     /**
      * Makes the hero and enemy bounce off walls
      */    
-    private void wallCollissions() {
-        //TODO Implement this method
+    private void wallCollissions(Character c){
+        //walls = this.getWidth(), this.getHeight(), 0
+        //where the hero is = hero.getX(), hero.getY()
+        if (c.getX() <= 0 || c.getX() + 20 >= this.getWidth() ) {
+            c.reverseX();
+        }
+        if (c.getY() <= 0 || c.getY() + 20 >= this.getHeight() ) {
+            c.reverseY();
+        }
     }
 }

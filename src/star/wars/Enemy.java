@@ -21,8 +21,8 @@ public class Enemy extends Character {
     
     @Override
     public void update() {
-        super.setDX( (int) (Math.random()*10) - 4 );
-        super.setDY( (int) (Math.random()*10) - 4 );
+        super.setDX( (int) (Math.random()*5) - 3 );
+        super.setDY( (int) (Math.random()*5) - 3 );
         super.update();
     }
 }

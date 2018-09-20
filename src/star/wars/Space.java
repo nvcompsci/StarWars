@@ -31,7 +31,7 @@ public class Space extends JPanel {
         hero = new Hero(600, 480, Color.MAGENTA, 20, "Dude");
         enemy = new Enemy(50, 50, Color.RED, 20, "Enemy");
         timer = new Timer();
-        timer.scheduleAtFixedRate(new ScheduleTask(), 100, 1000/8);
+        timer.scheduleAtFixedRate(new ScheduleTask(), 100, 1000/20);
         
     }
     
@@ -111,7 +111,12 @@ public class Space extends JPanel {
      * Handles collisions between the hero and enemy
      */
     private void heroVsEnemy() {
-        
+        if (hero.getX()+ 40 >= enemy.getX() && hero.getY() + 40 >= enemy.getY()) {
+            if (hero.getX() <= enemy.getX() + 40 && hero.getY() <= enemy.getY() + 40) {
+                hero.kill(enemy);
+                enemy.setX(-2000);
+            }
+        }
     }
     
     /**
